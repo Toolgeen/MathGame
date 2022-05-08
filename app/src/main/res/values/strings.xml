@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">MathGame</string>
+    <string name="test_level_name">test</string>
+    <string name="easy_level_name">easy</string>
+    <string name="normal_level_name">normal</string>
+    <string name="hard_level_name">hard</string>
+
+    <string name="right_answers_title">Правильных ответов:</string>
+    <string name="total_answers_title">Всего ответов:</string>
+    <string name="percent_title">Процент правильных ответов:</string>
+    <string name="level_title">Выбранный уровень:</string>
+
+    <string name="progress_answers">Правильных ответов %s (минимум %s):</string>
+    <string name="start">START</string>
+    <string name="brain_image_content_desc">brain image</string>
+
+
 </resources>
