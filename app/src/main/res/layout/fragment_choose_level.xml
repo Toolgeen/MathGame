@@ -9,6 +9,7 @@
     tools:context=".presentation.ChooseLevelFragment">
 
 <androidx.cardview.widget.CardView
+    android:id="@+id/cvTestLevel"
     android:layout_width="match_parent"
     android:layout_height="50dp"
     app:cardCornerRadius="6dp"
@@ -32,6 +33,7 @@
 </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cvEasyLevel"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         app:cardCornerRadius="6dp"
@@ -55,6 +57,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cvNormalLevel"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         app:cardCornerRadius="6dp"
@@ -78,6 +81,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cvHardLevel"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         app:cardCornerRadius="6dp"
