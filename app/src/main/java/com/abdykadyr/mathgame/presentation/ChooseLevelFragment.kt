@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.abdykadyr.mathgame.R
 import com.abdykadyr.mathgame.databinding.FragmentChooseLevelBinding
+import com.abdykadyr.mathgame.domain.entity.Level
 import java.lang.RuntimeException
 
 class ChooseLevelFragment: Fragment() {
@@ -27,10 +28,12 @@ class ChooseLevelFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.cvTestLevel.setOnClickListener {  }
-        binding.cvEasyLevel.setOnClickListener {  }
-        binding.cvNormalLevel.setOnClickListener {  }
-        binding.cvHardLevel.setOnClickListener {  }
+        with(binding) {
+            cvTestLevel.setOnClickListener { launchGameWithCurrentLevel(Level.TEST) }
+            cvEasyLevel.setOnClickListener { launchGameWithCurrentLevel(Level.EASY) }
+            cvNormalLevel.setOnClickListener { launchGameWithCurrentLevel(Level.NORMAL) }
+            cvHardLevel.setOnClickListener { launchGameWithCurrentLevel(Level.HARD) }
+        }
 
     }
 
@@ -38,4 +41,20 @@ class ChooseLevelFragment: Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+    private  fun launchGameWithCurrentLevel(level: Level) {
+        requireActivity().supportFragmentManager.beginTransaction()
+            .replace(R.id.main_container,GameFragment.newInstance(level))
+            .addToBackStack(ChooseLevelFragment.NAME)
+            .commit()
+    }
+
+    companion object {
+
+        const val NAME = "choose_level_fragment"
+        fun newInstance(): ChooseLevelFragment {
+            return ChooseLevelFragment()
+        }
+    }
+
 }

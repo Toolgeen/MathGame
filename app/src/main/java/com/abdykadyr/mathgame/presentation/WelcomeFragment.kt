@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.abdykadyr.mathgame.R
 import com.abdykadyr.mathgame.databinding.FragmentWelcomeBinding
 import java.lang.RuntimeException
 
@@ -26,12 +27,20 @@ class WelcomeFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         binding.bStart.setOnClickListener {
-
+            launchChooseLevelFragment()
         }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    //TODO: replace with Navigation
+    private fun launchChooseLevelFragment() {
+        requireActivity().supportFragmentManager.beginTransaction()
+            .replace(R.id.main_container,ChooseLevelFragment.newInstance())
+            .addToBackStack(null)
+            .commit()
     }
 }
