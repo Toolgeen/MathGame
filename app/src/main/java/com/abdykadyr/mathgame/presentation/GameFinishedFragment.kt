@@ -44,6 +44,7 @@ class GameFinishedFragment: Fragment() {
                 }
             }
         )
+
     }
 
     override fun onDestroyView() {
@@ -60,6 +61,8 @@ class GameFinishedFragment: Fragment() {
     private fun retryGame() {
         requireActivity().supportFragmentManager.popBackStack(ChooseLevelFragment.NAME,0)
     }
+
+
 
     companion object {
 
