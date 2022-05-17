@@ -5,10 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.abdykadyr.mathgame.R
+import androidx.navigation.fragment.findNavController
 import com.abdykadyr.mathgame.databinding.FragmentChooseLevelBinding
 import com.abdykadyr.mathgame.domain.entity.Level
-import java.lang.RuntimeException
 
 class ChooseLevelFragment: Fragment() {
 
@@ -20,9 +19,9 @@ class ChooseLevelFragment: Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
-        _binding = FragmentChooseLevelBinding.inflate(inflater,container,false)
+        _binding = FragmentChooseLevelBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -42,19 +41,9 @@ class ChooseLevelFragment: Fragment() {
         _binding = null
     }
 
-    private  fun launchGameWithCurrentLevel(level: Level) {
-        requireActivity().supportFragmentManager.beginTransaction()
-            .replace(R.id.main_container,GameFragment.newInstance(level))
-            .addToBackStack(ChooseLevelFragment.NAME)
-            .commit()
+    private fun launchGameWithCurrentLevel(level: Level) {
+        findNavController().navigate(
+            ChooseLevelFragmentDirections.actionChooseLevelFragmentToGameFragment(level)
+        )
     }
-
-    companion object {
-
-        const val NAME = "choose_level_fragment"
-        fun newInstance(): ChooseLevelFragment {
-            return ChooseLevelFragment()
-        }
-    }
-
 }

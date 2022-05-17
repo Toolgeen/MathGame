@@ -9,21 +9,19 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.abdykadyr.mathgame.R
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.abdykadyr.mathgame.databinding.FragmentGameBinding
 import com.abdykadyr.mathgame.domain.entity.GameResult
-import com.abdykadyr.mathgame.domain.entity.GameSettings
-import com.abdykadyr.mathgame.domain.entity.Level
-import java.lang.RuntimeException
 
 class GameFragment: Fragment() {
 
-    private lateinit var level: Level
+    private val args by navArgs<GameFragmentArgs>()
+
+    private val factory by lazy {
+        GameViewModelFactory(args.level, requireActivity().application) }
     private val viewModel by lazy {
-        ViewModelProvider(
-            this,
-        ViewModelProvider.AndroidViewModelFactory.getInstance(requireActivity().application)
-        )[GameViewModel::class.java]
+        ViewModelProvider(this, factory)[GameViewModel::class.java]
     }
 
     private val tvOptions by lazy {
@@ -41,16 +39,12 @@ class GameFragment: Fragment() {
     private val binding: FragmentGameBinding
         get() = _binding ?: throw RuntimeException("FragmentGameBinding == null")
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        parseArgs()
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentGameBinding.inflate(inflater,container,false)
         return binding.root
     }
@@ -58,7 +52,7 @@ class GameFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         observeViewModel()
-        viewModel.startGame(level)
+        viewModel.startGame()
         setClickListenersToOptions()
     }
 
@@ -112,30 +106,11 @@ class GameFragment: Fragment() {
         return ContextCompat.getColor(requireContext(),colorResId)
     }
 
-    private fun parseArgs() {
-        requireArguments().getParcelable<Level>(KEY_LEVEL)?.let {
-            level = it
-        }
-    }
-
 
     private fun launchGameFinishedFragment(gameResult: GameResult) {
-        requireActivity().supportFragmentManager.beginTransaction()
-            .replace(R.id.main_container,GameFinishedFragment.newInstance(gameResult))
-            .addToBackStack(null)
-            .commit()
+        findNavController().navigate(
+            GameFragmentDirections.actionGameFragmentToGameFinishedFragment(gameResult)
+        )
     }
 
-    companion object {
-
-        private const val KEY_LEVEL = "level"
-
-        fun newInstance(level: Level) : GameFragment {
-            return GameFragment().apply {
-                arguments = Bundle().apply {
-                    putParcelable(KEY_LEVEL,level)
-                }
-            }
-        }
-    }
 }

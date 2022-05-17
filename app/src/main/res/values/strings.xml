@@ -5,10 +5,10 @@
     <string name="normal_level_name">normal</string>
     <string name="hard_level_name">hard</string>
 
-    <string name="right_answers_title">Правильных ответов: %s</string>
+    <string name="right_answers_title">Минимальное количество правильных ответов: %s</string>
     <string name="total_answers_title">Всего ответов: %s</string>
-    <string name="percent_title">Процент правильных ответов: %s</string>
-    <string name="level_title">Выбранный уровень: %s</string>
+    <string name="percent_title">Минимальный процент правильных ответов: %s</string>
+    <string name="level_title">Полученный процент правильных ответов: %s</string>
 
     <string name="progress_answers">Правильных ответов %s (минимум %s):</string>
     <string name="start">START</string>

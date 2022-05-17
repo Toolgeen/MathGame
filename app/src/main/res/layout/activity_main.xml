@@ -6,7 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".presentation.MainActivity"
     android:id="@+id/main_container"
-    android:name="com.abdykadyr.mathgame.presentation.WelcomeFragment">
+    android:name="androidx.navigation.fragment.NavHostFragment"
+    app:defaultNavHost="true"
+    app:navGraph="@navigation/main_navigation">
 
 
 </androidx.fragment.app.FragmentContainerView>

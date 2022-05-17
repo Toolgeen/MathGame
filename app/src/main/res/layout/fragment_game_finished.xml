@@ -30,7 +30,7 @@
 
     <TextView
         android:id="@+id/tvRightAnswersTitle"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/ivSmile"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,16 +39,6 @@
         android:textSize="20sp"
         android:text="@string/right_answers_title"/>
 
-    <TextView
-        android:id="@+id/tvRightAnswersValue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/ivSmile"
-        app:layout_constraintStart_toEndOf="@id/tvRightAnswersTitle"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"
-        android:textSize="20sp"
-        tools:text="0"/>
 
     <TextView
         android:id="@+id/tvTotalAnswersTitle"
@@ -62,17 +52,6 @@
         android:text="@string/total_answers_title"/>
 
     <TextView
-        android:id="@+id/tvTotalAnswersValue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/tvRightAnswersTitle"
-        app:layout_constraintStart_toEndOf="@+id/tvTotalAnswersTitle"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"
-        android:textSize="20sp"
-        tools:text="0"/>
-
-    <TextView
         android:id="@+id/tvPercentTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -84,19 +63,8 @@
         android:text="@string/percent_title"/>
 
     <TextView
-        android:id="@+id/tvPercentValue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/tvTotalAnswersTitle"
-        app:layout_constraintStart_toEndOf="@+id/tvPercentTitle"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"
-        android:textSize="20sp"
-        tools:text="0"/>
-
-    <TextView
         android:id="@+id/tvLevelTitle"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/tvPercentTitle"
         app:layout_constraintStart_toStartOf="parent"
@@ -105,16 +73,6 @@
         android:textSize="20sp"
         android:text="@string/level_title"/>
 
-    <TextView
-        android:id="@+id/tvLevelValue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/tvPercentTitle"
-        app:layout_constraintStart_toEndOf="@+id/tvLevelTitle"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"
-        android:textSize="20sp"
-        tools:text="@string/normal_level_name"/>
 
 
 
