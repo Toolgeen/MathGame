@@ -20,7 +20,6 @@ class ChooseLevelFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         _binding = FragmentChooseLevelBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -33,7 +32,6 @@ class ChooseLevelFragment: Fragment() {
             cvNormalLevel.setOnClickListener { launchGameWithCurrentLevel(Level.NORMAL) }
             cvHardLevel.setOnClickListener { launchGameWithCurrentLevel(Level.HARD) }
         }
-
     }
 
     override fun onDestroyView() {

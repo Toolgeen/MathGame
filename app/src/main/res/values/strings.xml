@@ -8,7 +8,10 @@
     <string name="right_answers_title">Минимальное количество правильных ответов: %s</string>
     <string name="total_answers_title">Всего ответов: %s</string>
     <string name="percent_title">Минимальный процент правильных ответов: %s</string>
-    <string name="level_title">Полученный процент правильных ответов: %s</string>
+    <string name="total_percent_title">Полученный процент правильных ответов: %s</string>
+
+    <string name="win_title">Вы победили!</string>
+    <string name="lose_title">Вы проиграли.</string>
 
     <string name="progress_answers">Правильных ответов %s (минимум %s):</string>
     <string name="start">START</string>
